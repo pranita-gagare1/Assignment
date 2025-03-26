@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        #slider {
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            max-width: 600px;
+          
+        }
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+       
+        #slider img.active {
+            display: block;
+        }
+
+      
+
+        .button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        #slider img {
+            width: 100%;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="slider">
+    <img src="./Image/nature1.jpg" class="active">
+    <img src="./Image/nature2.jpg">
+    <img src="./Image/nature3.jpg">
+    <div class="buttons">
+        <button class="button" id="prev">Previous</button>
+        <button class="button" id="next">Next</button>
+    </div>
+</div>
+
+<script>
+    const images = [
+        'nature1.jpg',
+        'nature2.jpg',
+        'nature3.jpg'
+    ];
+    
+    const slider = document.getElementById('slider');
+    const imgElements = images.map(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        slider.insertBefore(img, slider.lastElementChild); 
+        return img;
+    });
+
+    let currentIndex = 0;
+    imgElements[currentIndex].classList.add('active');
+
+    function showImage(index) {
+        imgElements.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % imgElements.length;
+        showImage(currentIndex);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + imgElements.length) % imgElements.length;
+        showImage(currentIndex);
+    });
+</script>
+
+</body>
+</html>

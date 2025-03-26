@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            margin: auto;
+            background-color: #f0f0f0;
+          
+        }
+
+        .card {
+         
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s;
+          
+           
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .designation {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                width: 90%;
+               
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+    
+        <img src="./Picture2.jpg"  alt="profile image" class="profile-picture">
+    
+        <div class="name">Pranita Gagare</div>
+        <div class="designation">Associate Software Engineer</div>
+        <div class="bio">Passionate about creating interactive and user-friendly web applications.</div>
+        <div class="social-icons">
+            <a href="#" aria-label="LinkedIn">🔗</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Facebook">🌐</a>
+        </div>
+    </div>
+
+</body>
+</html>
